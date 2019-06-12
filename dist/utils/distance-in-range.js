@@ -1,0 +1,37 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.distanceInRange = void 0;
+
+var _inRange = require("./in-range");
+
+/**
+ * Determine the percentage of distance between `target` and `compare` on the
+ * line between `target` and `limit`.
+ */
+var distanceInRange = function distanceInRange(target, compare, limit) {
+  var sign = target > limit ? -1 : 1;
+  var absTarget = target * sign;
+  var absCompare = compare * sign;
+  var absLimit = limit * sign; // Match is match
+
+  if (absCompare === absTarget) {
+    return 1;
+  } // No match when value of `compare` is above the `limit` or under the `target`
+
+
+  if (!(0, _inRange.inRange)(absCompare, absTarget, absLimit)) {
+    return 0;
+  } // Calculate the percentage from the whole
+
+
+  var numerator = absCompare - absTarget;
+  var denomerator = absLimit - absTarget;
+  var distance = 1.0 - numerator / denomerator;
+  return distance;
+};
+
+exports.distanceInRange = distanceInRange;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9kaXN0YW5jZS1pbi1yYW5nZS50cyJdLCJuYW1lcyI6WyJkaXN0YW5jZUluUmFuZ2UiLCJ0YXJnZXQiLCJjb21wYXJlIiwibGltaXQiLCJzaWduIiwiYWJzVGFyZ2V0IiwiYWJzQ29tcGFyZSIsImFic0xpbWl0IiwibnVtZXJhdG9yIiwiZGVub21lcmF0b3IiLCJkaXN0YW5jZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUVBOzs7O0FBSU8sSUFBTUEsZUFBZSxHQUFHLFNBQWxCQSxlQUFrQixDQUFDQyxNQUFELEVBQWlCQyxPQUFqQixFQUFrQ0MsS0FBbEMsRUFBNEQ7QUFDekYsTUFBTUMsSUFBSSxHQUFHSCxNQUFNLEdBQUdFLEtBQVQsR0FBaUIsQ0FBQyxDQUFsQixHQUFzQixDQUFuQztBQUVBLE1BQU1FLFNBQVMsR0FBR0osTUFBTSxHQUFHRyxJQUEzQjtBQUNBLE1BQU1FLFVBQVUsR0FBR0osT0FBTyxHQUFHRSxJQUE3QjtBQUNBLE1BQU1HLFFBQVEsR0FBR0osS0FBSyxHQUFHQyxJQUF6QixDQUx5RixDQU96Rjs7QUFDQSxNQUFJRSxVQUFVLEtBQUtELFNBQW5CLEVBQThCO0FBQzVCLFdBQU8sQ0FBUDtBQUNELEdBVndGLENBWXpGOzs7QUFDQSxNQUFJLENBQUMsc0JBQVFDLFVBQVIsRUFBb0JELFNBQXBCLEVBQStCRSxRQUEvQixDQUFMLEVBQStDO0FBQzdDLFdBQU8sQ0FBUDtBQUNELEdBZndGLENBaUJ6Rjs7O0FBQ0EsTUFBTUMsU0FBUyxHQUFHRixVQUFVLEdBQUdELFNBQS9CO0FBQ0EsTUFBTUksV0FBVyxHQUFHRixRQUFRLEdBQUdGLFNBQS9CO0FBQ0EsTUFBTUssUUFBUSxHQUFHLE1BQU1GLFNBQVMsR0FBR0MsV0FBbkM7QUFFQSxTQUFPQyxRQUFQO0FBQ0QsQ0F2Qk0iLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBpblJhbmdlIH0gZnJvbSAnLi9pbi1yYW5nZSc7XG5cbi8qKlxuICogRGV0ZXJtaW5lIHRoZSBwZXJjZW50YWdlIG9mIGRpc3RhbmNlIGJldHdlZW4gYHRhcmdldGAgYW5kIGBjb21wYXJlYCBvbiB0aGVcbiAqIGxpbmUgYmV0d2VlbiBgdGFyZ2V0YCBhbmQgYGxpbWl0YC5cbiAqL1xuZXhwb3J0IGNvbnN0IGRpc3RhbmNlSW5SYW5nZSA9ICh0YXJnZXQ6IG51bWJlciwgY29tcGFyZTogbnVtYmVyLCBsaW1pdDogbnVtYmVyKTogbnVtYmVyID0+IHtcbiAgY29uc3Qgc2lnbiA9IHRhcmdldCA+IGxpbWl0ID8gLTEgOiAxO1xuXG4gIGNvbnN0IGFic1RhcmdldCA9IHRhcmdldCAqIHNpZ247XG4gIGNvbnN0IGFic0NvbXBhcmUgPSBjb21wYXJlICogc2lnbjtcbiAgY29uc3QgYWJzTGltaXQgPSBsaW1pdCAqIHNpZ247XG5cbiAgLy8gTWF0Y2ggaXMgbWF0Y2hcbiAgaWYgKGFic0NvbXBhcmUgPT09IGFic1RhcmdldCkge1xuICAgIHJldHVybiAxO1xuICB9XG5cbiAgLy8gTm8gbWF0Y2ggd2hlbiB2YWx1ZSBvZiBgY29tcGFyZWAgaXMgYWJvdmUgdGhlIGBsaW1pdGAgb3IgdW5kZXIgdGhlIGB0YXJnZXRgXG4gIGlmICghaW5SYW5nZShhYnNDb21wYXJlLCBhYnNUYXJnZXQsIGFic0xpbWl0KSkge1xuICAgIHJldHVybiAwO1xuICB9XG5cbiAgLy8gQ2FsY3VsYXRlIHRoZSBwZXJjZW50YWdlIGZyb20gdGhlIHdob2xlXG4gIGNvbnN0IG51bWVyYXRvciA9IGFic0NvbXBhcmUgLSBhYnNUYXJnZXQ7XG4gIGNvbnN0IGRlbm9tZXJhdG9yID0gYWJzTGltaXQgLSBhYnNUYXJnZXQ7XG4gIGNvbnN0IGRpc3RhbmNlID0gMS4wIC0gbnVtZXJhdG9yIC8gZGVub21lcmF0b3I7XG5cbiAgcmV0dXJuIGRpc3RhbmNlO1xufTtcbiJdfQ==

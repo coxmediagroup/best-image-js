@@ -1,0 +1,31 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.angleBetweenVectors = void 0;
+
+/**
+ * Calculate the radian angle between two vectors.
+ *
+ * `Math.acos` returns `NaN` for inputs not between `-1` and `1`. Since this
+ * function is to find angles between 0 and PI/2, where `Math.acos` would
+ * return `NaN`, this will return `0`.
+ */
+var angleBetweenVectors = function angleBetweenVectors(x1, y1, x2, y2) {
+  var dotProduct = x1 * x2 + y1 * y2;
+  var magnitude1 = Math.sqrt(Math.pow(x1, 2) + Math.pow(y1, 2));
+  var magnitude2 = Math.sqrt(Math.pow(x2, 2) + Math.pow(y2, 2));
+  var productMagnitude = magnitude1 * magnitude2;
+  var quotient = dotProduct / productMagnitude;
+
+  if (quotient > 1) {
+    return 0;
+  }
+
+  var radians = Math.acos(quotient);
+  return radians;
+};
+
+exports.angleBetweenVectors = angleBetweenVectors;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9hbmdsZS1iZXR3ZWVuLXZlY3RvcnMudHMiXSwibmFtZXMiOlsiYW5nbGVCZXR3ZWVuVmVjdG9ycyIsIngxIiwieTEiLCJ4MiIsInkyIiwiZG90UHJvZHVjdCIsIm1hZ25pdHVkZTEiLCJNYXRoIiwic3FydCIsIm1hZ25pdHVkZTIiLCJwcm9kdWN0TWFnbml0dWRlIiwicXVvdGllbnQiLCJyYWRpYW5zIiwiYWNvcyJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOzs7Ozs7O0FBT08sSUFBTUEsbUJBQW1CLEdBQUcsU0FBdEJBLG1CQUFzQixDQUFDQyxFQUFELEVBQWFDLEVBQWIsRUFBeUJDLEVBQXpCLEVBQXFDQyxFQUFyQyxFQUFvRDtBQUNyRixNQUFNQyxVQUFVLEdBQUdKLEVBQUUsR0FBR0UsRUFBTCxHQUFVRCxFQUFFLEdBQUdFLEVBQWxDO0FBQ0EsTUFBTUUsVUFBVSxHQUFHQyxJQUFJLENBQUNDLElBQUwsQ0FBVSxTQUFBUCxFQUFFLEVBQUksQ0FBSixDQUFGLFlBQVVDLEVBQVYsRUFBZ0IsQ0FBaEIsQ0FBVixDQUFuQjtBQUNBLE1BQU1PLFVBQVUsR0FBR0YsSUFBSSxDQUFDQyxJQUFMLENBQVUsU0FBQUwsRUFBRSxFQUFJLENBQUosQ0FBRixZQUFVQyxFQUFWLEVBQWdCLENBQWhCLENBQVYsQ0FBbkI7QUFDQSxNQUFNTSxnQkFBZ0IsR0FBR0osVUFBVSxHQUFHRyxVQUF0QztBQUNBLE1BQU1FLFFBQVEsR0FBR04sVUFBVSxHQUFHSyxnQkFBOUI7O0FBRUEsTUFBSUMsUUFBUSxHQUFHLENBQWYsRUFBa0I7QUFDaEIsV0FBTyxDQUFQO0FBQ0Q7O0FBRUQsTUFBTUMsT0FBTyxHQUFHTCxJQUFJLENBQUNNLElBQUwsQ0FBVUYsUUFBVixDQUFoQjtBQUNBLFNBQU9DLE9BQVA7QUFDRCxDQWJNIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBDYWxjdWxhdGUgdGhlIHJhZGlhbiBhbmdsZSBiZXR3ZWVuIHR3byB2ZWN0b3JzLlxuICpcbiAqIGBNYXRoLmFjb3NgIHJldHVybnMgYE5hTmAgZm9yIGlucHV0cyBub3QgYmV0d2VlbiBgLTFgIGFuZCBgMWAuIFNpbmNlIHRoaXNcbiAqIGZ1bmN0aW9uIGlzIHRvIGZpbmQgYW5nbGVzIGJldHdlZW4gMCBhbmQgUEkvMiwgd2hlcmUgYE1hdGguYWNvc2Agd291bGRcbiAqIHJldHVybiBgTmFOYCwgdGhpcyB3aWxsIHJldHVybiBgMGAuXG4gKi9cbmV4cG9ydCBjb25zdCBhbmdsZUJldHdlZW5WZWN0b3JzID0gKHgxOiBudW1iZXIsIHkxOiBudW1iZXIsIHgyOiBudW1iZXIsIHkyOiBudW1iZXIpID0+IHtcbiAgY29uc3QgZG90UHJvZHVjdCA9IHgxICogeDIgKyB5MSAqIHkyO1xuICBjb25zdCBtYWduaXR1ZGUxID0gTWF0aC5zcXJ0KHgxICoqIDIgKyB5MSAqKiAyKTtcbiAgY29uc3QgbWFnbml0dWRlMiA9IE1hdGguc3FydCh4MiAqKiAyICsgeTIgKiogMik7XG4gIGNvbnN0IHByb2R1Y3RNYWduaXR1ZGUgPSBtYWduaXR1ZGUxICogbWFnbml0dWRlMjtcbiAgY29uc3QgcXVvdGllbnQgPSBkb3RQcm9kdWN0IC8gcHJvZHVjdE1hZ25pdHVkZTtcblxuICBpZiAocXVvdGllbnQgPiAxKSB7XG4gICAgcmV0dXJuIDA7XG4gIH1cblxuICBjb25zdCByYWRpYW5zID0gTWF0aC5hY29zKHF1b3RpZW50KTtcbiAgcmV0dXJuIHJhZGlhbnM7XG59O1xuIl19

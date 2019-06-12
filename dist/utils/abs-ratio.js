@@ -1,0 +1,14 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.absRatio = void 0;
+
+// Alias absolute "ratio" calculations (normalizes rotation)
+var absRatio = function absRatio(numerator, denominator) {
+  return Math.min(numerator, denominator) / Math.max(numerator, denominator);
+};
+
+exports.absRatio = absRatio;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9hYnMtcmF0aW8udHMiXSwibmFtZXMiOlsiYWJzUmF0aW8iLCJudW1lcmF0b3IiLCJkZW5vbWluYXRvciIsIk1hdGgiLCJtaW4iLCJtYXgiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTtBQUNPLElBQU1BLFFBQVEsR0FBRyxTQUFYQSxRQUFXLENBQUNDLFNBQUQsRUFBb0JDLFdBQXBCLEVBQTRDO0FBQ2xFLFNBQU9DLElBQUksQ0FBQ0MsR0FBTCxDQUFTSCxTQUFULEVBQW9CQyxXQUFwQixJQUFtQ0MsSUFBSSxDQUFDRSxHQUFMLENBQVNKLFNBQVQsRUFBb0JDLFdBQXBCLENBQTFDO0FBQ0QsQ0FGTSIsInNvdXJjZXNDb250ZW50IjpbIi8vIEFsaWFzIGFic29sdXRlIFwicmF0aW9cIiBjYWxjdWxhdGlvbnMgKG5vcm1hbGl6ZXMgcm90YXRpb24pXG5leHBvcnQgY29uc3QgYWJzUmF0aW8gPSAobnVtZXJhdG9yOiBudW1iZXIsIGRlbm9taW5hdG9yOiBudW1iZXIpID0+IHtcbiAgcmV0dXJuIE1hdGgubWluKG51bWVyYXRvciwgZGVub21pbmF0b3IpIC8gTWF0aC5tYXgobnVtZXJhdG9yLCBkZW5vbWluYXRvcik7XG59O1xuIl19

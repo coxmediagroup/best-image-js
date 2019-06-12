@@ -1,0 +1,23 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.inRange = void 0;
+
+// Determine if a value is within range of min and max
+var inRange = function inRange(value, min, max) {
+  var sign = min > max ? -1 : 1;
+  var absValue = value * sign;
+  var absMin = min * sign;
+  var absMax = max * sign;
+
+  if (absValue < absMin || absValue > absMax) {
+    return false;
+  }
+
+  return true;
+};
+
+exports.inRange = inRange;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlscy9pbi1yYW5nZS50cyJdLCJuYW1lcyI6WyJpblJhbmdlIiwidmFsdWUiLCJtaW4iLCJtYXgiLCJzaWduIiwiYWJzVmFsdWUiLCJhYnNNaW4iLCJhYnNNYXgiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQTtBQUNPLElBQU1BLE9BQU8sR0FBRyxTQUFWQSxPQUFVLENBQUNDLEtBQUQsRUFBZ0JDLEdBQWhCLEVBQTZCQyxHQUE3QixFQUE2QztBQUNsRSxNQUFNQyxJQUFJLEdBQUdGLEdBQUcsR0FBR0MsR0FBTixHQUFZLENBQUMsQ0FBYixHQUFpQixDQUE5QjtBQUVBLE1BQU1FLFFBQVEsR0FBR0osS0FBSyxHQUFHRyxJQUF6QjtBQUNBLE1BQU1FLE1BQU0sR0FBR0osR0FBRyxHQUFHRSxJQUFyQjtBQUNBLE1BQU1HLE1BQU0sR0FBR0osR0FBRyxHQUFHQyxJQUFyQjs7QUFFQSxNQUFJQyxRQUFRLEdBQUdDLE1BQVgsSUFBcUJELFFBQVEsR0FBR0UsTUFBcEMsRUFBNEM7QUFDMUMsV0FBTyxLQUFQO0FBQ0Q7O0FBRUQsU0FBTyxJQUFQO0FBQ0QsQ0FaTSIsInNvdXJjZXNDb250ZW50IjpbIi8vIERldGVybWluZSBpZiBhIHZhbHVlIGlzIHdpdGhpbiByYW5nZSBvZiBtaW4gYW5kIG1heFxuZXhwb3J0IGNvbnN0IGluUmFuZ2UgPSAodmFsdWU6IG51bWJlciwgbWluOiBudW1iZXIsIG1heDogbnVtYmVyKSA9PiB7XG4gIGNvbnN0IHNpZ24gPSBtaW4gPiBtYXggPyAtMSA6IDE7XG5cbiAgY29uc3QgYWJzVmFsdWUgPSB2YWx1ZSAqIHNpZ247XG4gIGNvbnN0IGFic01pbiA9IG1pbiAqIHNpZ247XG4gIGNvbnN0IGFic01heCA9IG1heCAqIHNpZ247XG5cbiAgaWYgKGFic1ZhbHVlIDwgYWJzTWluIHx8IGFic1ZhbHVlID4gYWJzTWF4KSB7XG4gICAgcmV0dXJuIGZhbHNlO1xuICB9XG5cbiAgcmV0dXJuIHRydWU7XG59O1xuIl19
